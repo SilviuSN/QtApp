@@ -1,5 +1,5 @@
-import QtQuick 2.0
-import QtQuick.Controls 2.5
+import QtQuick
+import QtQuick.Controls
 
 Item {
 
@@ -38,5 +38,31 @@ Item {
         height: 50
         text: "Quit"
         onClicked: Qt.quit()
+    }
+
+    Label {
+        id: scoreLabel
+        width: 100
+        height: 25
+        anchors {
+            left: parent.left;
+            top: parent.top;
+            topMargin: 100;
+        }
+        text: "High Scores:"
+    }
+
+    ListView {
+        id: score
+        width: 100;
+        height: 100
+        anchors {
+            top:scoreLabel.bottom
+            left:parent.left
+        }
+        model: ScoreModel.scoreList
+        delegate: Text {
+            text: ScoreModel.scoreList[index]
+        }
     }
 }

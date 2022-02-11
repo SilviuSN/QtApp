@@ -1,5 +1,5 @@
-import QtQuick 2.15
-import QtQuick.Controls 2.5
+import QtQuick
+import QtQuick.Controls
 
 Item {
     Image {
@@ -84,7 +84,11 @@ Item {
 
         standardButtons: Dialog.Ok
 
-        onAccepted: root.stack.pop();
+        onAccepted:
+        {
+            ScoreModel.insertNewScore(internal.score);
+            root.stack.pop();
+        }
     }
 
     QtObject {

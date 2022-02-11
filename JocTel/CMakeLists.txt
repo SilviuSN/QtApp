@@ -6,11 +6,14 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_PREFIX_PATH "/home/silviu/Qt/6.2.2/gcc_64/lib/cmake")
 
 find_package(Qt6 6.2 COMPONENTS Quick REQUIRED)
 
 qt_add_executable(appJocTel
     main.cpp
+    discsaving.h discsaving.cpp
+    scoremodel.h scoremodel.cpp
     images.qrc
 )
 
